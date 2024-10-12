@@ -1,0 +1,158 @@
+@font-face {
+  font-family: squidgame;
+  src: url(../Font/Game\ Of\ Squids.ttf);
+}
+
+*{
+  font-family:squidgame;
+  box-sizing: border-box;
+}
+
+:root{
+  --clr-bold-pink:#ed1b76;
+  --clr-light-pink :#f44786;
+  --clr-light-green :#249f9c;
+  --clr-bold-green :#037a76;
+  --mark-size:calc(var(--grid-item-size)*0.9);
+  --grid-item-size:150px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+h1{
+  text-align: center;
+  font-size: 5rem;
+  font-weight:900;
+  background: linear-gradient(to right,var(--clr-bold-green) ,white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  flex-shrink: 0; 
+}
+
+body{
+  background: rgb(27,18,18);
+  background: -moz-linear-gradient(56deg, rgba(27,18,18,1) 56%, rgba(3,122,118,1) 97%);
+  background: -webkit-linear-gradient(56deg, rgba(27,18,18,1) 56%, rgba(3,122,118,1) 97%);
+  background: linear-gradient(56deg, rgba(27,18,18,1) 56%, rgba(3,122,118,1) 97%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1b1212",endColorstr="#037a76",GradientType=1);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+P{
+  color: white;
+}
+
+.grid{
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: repeat(3,auto);
+  width: 100wh;
+}
+
+.grid-item {
+  border: solid 2px white;
+  width: var(--grid-item-size);
+  height: var(--grid-item-size);
+  cursor: pointer;
+}
+
+.grid-item:first-child,
+.grid-item:nth-child(2),
+.grid-item:nth-child(3){
+  border-top:none;
+}
+
+.grid-item:nth-child(7),
+.grid-item:nth-child(8),
+.grid-item:nth-child(9){
+  border-bottom: none;
+}
+
+.grid-item:nth-child(3n){
+  border-right: none;
+}
+
+.grid-item:nth-child(3n+1){
+  border-left:none;
+}
+
+.contents-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap:8em;
+}
+
+.win-message {
+  display: none; /* Hide by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.849);
+  z-index: 10;
+  color: white;
+}
+
+.win-message.show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.backdrop-buttons{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  gap:20px;
+}
+
+.replay-btn{
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--clr-bold-pink);
+  color: white;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 1.3rem;
+}
+
+.replay-btn:hover {
+  background-color: var(--clr-light-pink); /* Lighter shade on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add subtle shadow on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+#back-link-1{
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--clr-bold-green);
+  color: white;
+  text-decoration:none;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 1.3rem;
+}
+
+#back-link-1:hover {
+  background-color: var(--clr-light-green); /* Lighter shade on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add subtle shadow on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+#back-link-2{
+  color: white;
+  font-size: 3rem;
+}

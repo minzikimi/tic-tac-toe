@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic Tac Toe Game</title>
+  <link rel="stylesheet" href="./CSS/entry-styles.css" />
+  <link rel="stylesheet" href="./CSS/footer.css" />
+  <script src="./Script/entry-script.js" defer></script>
+</head>
+<body>
+  <div id="backdrop"></div>
+  <div class="container">
+    <h1>Are you ready?</h1>
+    <button id="button-entry">Enter</button>
+  </div>
+  <dialog class="entry-dialog">
+    <form class="name-form">
+      <label for="name">Player △</label>
+      <input type="text" id="name1" name="name1" autocomplete="off" required>
+
+      <label for="name">Player 〇</label>
+      <input type="text" id="name2" name="name2" autocomplete="off" required>
+
+      <div class="add-button">
+        <button type="button" id="cancel-button">Cancel</button>
+        <button type="submit" id="submit-button">Submit</button>
+     </div>
+    </form>
+  </dialog>
+
+
+  <footer>
+    <p>&copy; 2024 Minji Kim</p>
+  </footer>
+</body>
+</html>
+
+
+<!-- 
+<a href="index.html" class="button-link">Enter</a> -->

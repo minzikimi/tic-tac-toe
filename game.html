@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic Tac Toe game</title>
+  <link rel="stylesheet" href="./CSS/game-style.css" />
+  <link rel="stylesheet" href="./CSS/footer.css" />
+  <script src="./Script/game-script.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1 id="game-title">Tic Tac Toe Game</h1>
+  </header>
+  <div class="contents-wrapper">
+    <div class="display-player1">
+      <p></p>
+    </div>
+  
+      <div class="grid-container">
+        <div class="grid">
+          <div class="grid-item">x</div>
+          <div class="grid-item">x</div>
+          <div class="grid-item">x</div>
+          <div class="grid-item">x</div>
+          <div class="grid-item">x</div>
+          <div class="grid-item">x</div>
+          <div class="grid-item">x</div>
+          <div class="grid-item">x</div>
+          <div class="grid-item">x</div>
+        </div>
+      </div>
+      <div class="display-player2">
+        <p></p>
+      </div>
+  </div>
+  
+
+    <div class="win-message" id="win-message">
+      <div data-winning-message-text>x wins!</div>
+      <div class="backdrop-buttons">
+        <button class="replay-btn">Replay</button>
+        <a href="index.html" id="back-link-1">Go back</a>
+      </div>
+    </div>
+
+  <div>
+    <a href="index.html" id="back-link-2">Go back</a>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Minji Kim</p>
+  </footer>
+</body>
+</html>
