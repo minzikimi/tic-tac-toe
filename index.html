@@ -9,11 +9,14 @@
   <script src="./Script/entry-script.js" defer></script>
 </head>
 <body>
-  <div id="backdrop"></div>
-  <div class="container">
-    <h1>Are you ready?</h1>
-    <button id="button-entry">Enter</button>
+  <!-- <div id="backdrop"></div> -->
+<div class="container">
+  <h1 id="typing-effect">Are you ready?</h1>
+  <div class="button-wrapper">
+    <button id="entry-button">Enter</button>
+    <button id="rule-button">Game Rules</button>
   </div>
+</div>
   <dialog class="entry-dialog">
     <form class="name-form">
       <label for="name">Player △</label>
@@ -22,11 +25,59 @@
       <label for="name">Player 〇</label>
       <input type="text" id="name2" name="name2" autocomplete="off" required>
 
-      <div class="add-button">
+      <div class="entry-button-container">
         <button type="button" id="cancel-button">Cancel</button>
         <button type="submit" id="submit-button">Submit</button>
      </div>
     </form>
+  </dialog>
+  <dialog class="rules-dialog">
+    <h2>Tic Tac Toe Game Rules</h2>
+    <h3 style="color:red; font-style: italic; text-align: center;">Game will start as you enter.</h3>
+    <section class="objective">
+      <h3>Game Objective</h3>
+      <p>Be the first player to align three of your markers in a row - horizontally, vertically, or diagonally.</p>
+    </section>
+  
+    <section class="players">
+      <h3>Players</h3>
+      <ul>
+        <li><strong>Player 1:</strong> Triangle (△) marker</li>
+        <li><strong>Player 2:</strong> Circle (〇) marker</li>
+      </ul>
+    </section>
+  
+    <section class="gameplay">
+      <h3>How to Play</h3>
+      <ol>
+        <li>Enter your names before the game starts.</li>
+        <li>The game board is a 3x3 grid.</li>
+        <li>Take turns placing your marker on an empty cell by clicking it.</li>
+        <li>First to align three markers wins!</li>
+      </ol>
+    </section>
+  
+    <section class="winning">
+      <h3>Winning Combinations</h3>
+      <ul>
+        <li>Horizontal: Three in any row</li>
+        <li>Vertical: Three in any column</li>
+        <li>Diagonal: Three from corner to opposite corner</li>
+      </ul>
+    </section>
+  
+    <section class="endgame">
+      <h3>Game End</h3>
+      <ul>
+        <li>Win: Successfully align three markers</li>
+        <li>Draw: All cells filled with no winner</li>
+      </ul>
+      <p>After the game, you can choose to replay or return to the main menu.</p>
+    </section>
+  
+    <div class="close-rules-button-container">
+      <button class="close-rules-button">Close</button>
+    </div>
   </dialog>
 
 

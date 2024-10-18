@@ -12,6 +12,8 @@
   --clr-light-pink :#f44786;
   --clr-light-green :#249f9c;
   --clr-bold-green :#037a76;
+  --clr-gold :#d4af37;
+  --clr-dark-black:#1c1c1c; 
 }
 
 html, body {
@@ -20,13 +22,12 @@ html, body {
   padding: 0;
 }
 
-
 body {
   background: rgb(27,18,18);
-background: -moz-linear-gradient(56deg, rgba(27,18,18,1) 20%, rgba(237,27,118,1) 77%);
-background: -webkit-linear-gradient(56deg, rgba(27,18,18,1) 20%, rgba(237,27,118,1) 77%);
-background: linear-gradient(56deg, rgba(27,18,18,1) 20%, rgba(237,27,118,1) 77%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1b1212",endColorstr="#ed1b76",GradientType=1);
+  background: -moz-linear-gradient(56deg, rgba(27,18,18,1) 20%, rgba(237,27,118,1) 77%);
+  background: -webkit-linear-gradient(56deg, rgba(27,18,18,1) 20%, rgba(237,27,118,1) 77%);
+  background: linear-gradient(56deg, rgba(27,18,18,1) 20%, rgba(237,27,118,1) 77%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1b1212",endColorstr="#ed1b76",GradientType=1);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -37,76 +38,87 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1b1212",endCo
 
 h1 {
   font-size: 5rem; 
-  background: linear-gradient(to right, white, #1B1212);
+  background: linear-gradient(to right, white,var(--clr-dark-black));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin: 0; 
 }
 
-#are{
-  color: white;
-}
-
-#button-entry {
-  display: inline-block;
-  padding: 20px 40px;
-  background-color:var(--clr-bold-green);
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  font-size:2rem;
-  margin:70px;
-}
-
-#button-entry:hover {
-  background-color:var(--clr-light-green);
-}
 
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 30px;
 }
 
-#backdrop {
-  position: fixed;
+.button-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.459);
-  z-index: 10;
-  pointer-events: none;
-  display: none;
+  gap: 20px; 
 }
 
-#backdrop.visible {
-  display: block;
-  pointer-events: all;
-}
-
-.entry-dialog{
-  border-radius: 10px;
-  width: 30%;
-  z-index: 100;
-  background-color: black;
-  color: white;
+#entry-button,
+#rule-button {
+  width: 18rem;
+  padding: 20px 0; 
+  text-align: center;
+  border-radius: 5px;
   border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#entry-button {
+  background-color: var(--clr-bold-green);
+  color: white;
   font-size: 2rem;
 }
 
-.entry-dialog > form{
+#entry-button:hover {
+  background-color: var(--clr-light-green);
+}
+
+#rule-button {
+  background-color:var(--clr-gold); 
+  color: white; 
+  font-size: 1.5rem; 
+}
+
+#rule-button:hover {
+  background-color: #e7c657; 
+}
+
+.entry-dialog {
+  padding: 1em;
+  width: 30%;
+  border: none;
+  border-radius: 10px;
+  background-color:var(--clr-dark-black);
+  color: white;
+  font-size: 2rem;
+} 
+
+.entry-dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.459);
+}
+
+.entry-dialog > form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap:30px;
+  gap: 30px;
+  text-shadow:
+    0 0 5px var(--clr-light-green),
+    0 0 10px var(--clr-light-green),
+    0 0 15px var(--clr-light-green),
+    0 0 20px var(--clr-light-green),
+    0 0 30px var(--clr-light-green);
 }
 
 form input {
@@ -115,29 +127,88 @@ form input {
   background-color: white;
   padding: 10px;
   width: 60%;
-  height: 40px; /* Adjust this value as needed */
+  height: 40px; 
   border-radius: 10px;
   font-size: 1.3rem;
 }
 
-.add-button > button{
-  padding:20px;
+.entry-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.entry-button-container > button {
+  padding: 20px;
   font-size: 1.3rem;
   border-radius: 10px;
   border: none;
-}
 
-.add-button > button:hover{
   cursor: pointer;
-  opacity: 80%;
+  transition: opacity 0.3s;
 }
 
-#submit-button{
+.entry-button-container > button:hover {
+  opacity: 0.8;
+}
+
+#submit-button {
   background-color: var(--clr-light-pink);
-  color:white
+  color: white;
 }
 
-#cancel-button{
+#cancel-button {
   background-color: var(--clr-light-green);
-  color:white
+  color: white;
+}
+
+.rules-dialog {
+  background-color:var(--clr-dark-black);
+  color: white; 
+  border: 3px solid var(--clr-gold); 
+  border-radius: 10px;
+  padding:20px;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+  line-height: 1.3;
+}
+
+.rules-dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.527);
+}
+
+.rules-dialog h2 {
+  color:var(--clr-gold); 
+  text-align: center;
+  margin: 0;
+}
+
+.rules-dialog h3 {
+  color: #f0e68c; 
+  margin: 0;
+}
+
+.rules-dialog p,
+.rules-dialog ul,
+.rules-dialog ol {
+  color: rgba(255, 255, 255, 0.9); 
+}
+
+.close-rules-button-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-rules-button{
+  background-color:var(--clr-gold);
+  color: black; 
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.close-rules-button:hover {
+  background-color: #b5942a; 
 }

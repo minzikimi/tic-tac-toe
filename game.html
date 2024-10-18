@@ -10,43 +10,38 @@
 </head>
 <body>
   <header>
-    <h1 id="game-title">Tic Tac Toe Game</h1>
+    <h1 id="game-title"></h1>
   </header>
-  <div class="contents-wrapper">
-    <div class="display-player1">
-      <p></p>
-    </div>
   
       <div class="grid-container">
         <div class="grid">
-          <div class="grid-item">x</div>
-          <div class="grid-item">x</div>
-          <div class="grid-item">x</div>
-          <div class="grid-item">x</div>
-          <div class="grid-item">x</div>
-          <div class="grid-item">x</div>
-          <div class="grid-item">x</div>
-          <div class="grid-item">x</div>
-          <div class="grid-item">x</div>
+          <div class="grid-item" data-index="0"></div>
+          <div class="grid-item" data-index="1"></div>
+          <div class="grid-item" data-index="2"></div>
+          <div class="grid-item" data-index="3"></div>
+          <div class="grid-item" data-index="4"></div>
+          <div class="grid-item" data-index="5"></div>
+          <div class="grid-item" data-index="6"></div>
+          <div class="grid-item" data-index="7"></div>
+          <div class="grid-item" data-index="8"></div>
         </div>
       </div>
-      <div class="display-player2">
-        <p></p>
-      </div>
-  </div>
+  
   
 
-    <div class="win-message" id="win-message">
-      <div data-winning-message-text>x wins!</div>
+    <div class="win-message-modal" id="win-message-modal">
+      <div class="win-message-text"><h2></h2></div>
       <div class="backdrop-buttons">
         <button class="replay-btn">Replay</button>
-        <a href="index.html" id="back-link-1">Go back</a>
+        <a href="index.html" id="navigation-back-1">Go back</a>
       </div>
     </div>
-
-  <div>
-    <a href="index.html" id="back-link-2">Go back</a>
+  <div class="game-footer">
+    <div>
+      <a href="index.html" id="navigation-back-2">Go back</a>
+    </div>
   </div>
+  
 
   <footer>
     <p>&copy; 2024 Minji Kim</p>

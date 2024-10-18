@@ -1,33 +1,41 @@
 const dialogEntry = document.querySelector(".entry-dialog");
-const backdrop = document.querySelector("#backdrop");
-const buttonEntry = document.querySelector("#button-entry");
+const dialogRule = document.querySelector(".rules-dialog");
+const entryBtn = document.querySelector("#entry-button");
+const ruleBtn = document.querySelector("#rule-button");
 const nameInput1 = document.querySelector("#name1");
 const nameInput2 = document.querySelector("#name2");
 const cancelBtn = document.querySelector("#cancel-button");
 const nameForm = document.querySelector(".name-form");
+const closeRuleBtn = document.querySelector(".close-rules-button");
 
-let playerName1 = "";
-let playerName2 = "";
-
-buttonEntry.addEventListener("click", openModalBox);
-cancelBtn.addEventListener("click", closeModalBox);
+entryBtn.addEventListener("click", openEntryModal);
+ruleBtn.addEventListener("click", openRuleModal);
+cancelBtn.addEventListener("click", closeEntryModal);
+closeRuleBtn.addEventListener("click", closeRuleModal);
 nameForm.addEventListener("submit", handleSubmit);
 document.addEventListener("keydown", handleEscapeKey);
 
-function openModalBox() {
+function openEntryModal() {
   dialogEntry.showModal();
-  toggleBackdrop();
 }
 
-function closeModalBox() {
+function closeEntryModal() {
   dialogEntry.close();
   clearInputs();
-  toggleBackdrop();
+}
+
+function openRuleModal() {
+  dialogRule.showModal();
+}
+
+function closeRuleModal() {
+  dialogRule.close();
 }
 
 function handleEscapeKey(event) {
-  if (event.key === 'Escape' && dialogEntry.open) {
-    closeModalBox();
+  if (event.key === 'Escape') {
+    if (dialogEntry.open) closeEntryModal();
+    if (dialogRule.open) closeRuleModal();
   }
 }
 
@@ -36,17 +44,19 @@ function clearInputs() {
   nameInput2.value = "";
 }
 
-function toggleBackdrop() {
-  backdrop.classList.toggle("visible");
-}
-
 function handleSubmit(event) {
   event.preventDefault();
-  playerName1 = nameInput1.value.trim();
-  playerName2 = nameInput2.value.trim();
+  const playerName1 = nameInput1.value.trim();
+  const playerName2 = nameInput2.value.trim();
   if (playerName1 && playerName2) {
     localStorage.setItem("playerName1", playerName1);
     localStorage.setItem("playerName2", playerName2);
-    window.location.href = "game.html"; // Redirect to the game page
+    window.location.href = "game.html";
+  } else {
+    alert("Please enter player names.");
   }
 }
+
+
+
+
