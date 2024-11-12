@@ -46,8 +46,8 @@ function clearInputs() {
 
 function handleSubmit(event) {
   event.preventDefault();
-  const playerName1 = nameInput1.value.trim();
-  const playerName2 = nameInput2.value.trim();
+  const playerName1 = nameInput1.value;
+  const playerName2 = nameInput2.value;
   if (playerName1 && playerName2) {
     localStorage.setItem("playerName1", playerName1);
     localStorage.setItem("playerName2", playerName2);

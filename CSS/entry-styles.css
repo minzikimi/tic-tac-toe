@@ -5,52 +5,53 @@
 
 * {
   font-family: squidgame;
+  box-sizing: border-box;
 }
 
-:root{
-  --clr-bold-pink:#ed1b76;
-  --clr-light-pink :#f44786;
-  --clr-light-green :#249f9c;
-  --clr-bold-green :#037a76;
-  --clr-gold :#d4af37;
-  --clr-dark-black:#1c1c1c; 
+:root {
+  --clr-bold-pink: #ed1b76;
+  --clr-light-pink: #f44786;
+  --clr-light-green: #249f9c;
+  --clr-bold-green: #037a76;
+  --clr-gold: #d4af37;
+  --clr-dark-black: #1c1c1c;
 }
 
 html, body {
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
 }
 
 body {
-  background: rgb(27,18,18);
-  background: -moz-linear-gradient(56deg, rgba(27,18,18,1) 20%, rgba(237,27,118,1) 77%);
-  background: -webkit-linear-gradient(56deg, rgba(27,18,18,1) 20%, rgba(237,27,118,1) 77%);
   background: linear-gradient(56deg, rgba(27,18,18,1) 20%, rgba(237,27,118,1) 77%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1b1212",endColorstr="#ed1b76",GradientType=1);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 1rem;
 }
 
 h1 {
-  font-size: 5rem; 
-  background: linear-gradient(to right, white,var(--clr-dark-black));
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  background: linear-gradient(to right, white, var(--clr-dark-black));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin: 0; 
+  margin: 0 0 1rem 0;
+  text-align: center;
 }
-
 
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: 2rem;
+  width: 100%;
+  max-width: 600px;
 }
 
 .button-wrapper {
@@ -59,13 +60,14 @@ h1 {
   align-items: center;
   justify-content: center;
   width: 100%;
-  gap: 20px; 
+  gap: 1rem;
 }
 
 #entry-button,
 #rule-button {
-  width: 18rem;
-  padding: 20px 0; 
+  width: 100%;
+  max-width: 18rem;
+  padding: 1rem 0;
   text-align: center;
   border-radius: 5px;
   border: none;
@@ -76,7 +78,7 @@ h1 {
 #entry-button {
   background-color: var(--clr-bold-green);
   color: white;
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
 }
 
 #entry-button:hover {
@@ -84,24 +86,25 @@ h1 {
 }
 
 #rule-button {
-  background-color:var(--clr-gold); 
-  color: white; 
-  font-size: 1.5rem; 
+  background-color: var(--clr-gold);
+  color: white;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
 }
 
 #rule-button:hover {
-  background-color: #e7c657; 
+  background-color: #e7c657;
 }
 
 .entry-dialog {
   padding: 1em;
-  width: 30%;
+  width: 90%;
+  max-width: 400px;
   border: none;
   border-radius: 10px;
-  background-color:var(--clr-dark-black);
+  background-color: var(--clr-dark-black);
   color: white;
-  font-size: 2rem;
-} 
+  font-size: clamp(1.2rem, 3vw, 2rem);
+}
 
 .entry-dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.459);
@@ -112,7 +115,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 1.5rem;
   text-shadow:
     0 0 5px var(--clr-light-green),
     0 0 10px var(--clr-light-green),
@@ -126,25 +129,26 @@ form input {
   outline: none;
   background-color: white;
   padding: 10px;
-  width: 60%;
-  height: 40px; 
+  width: 100%;
+  max-width: 300px;
+  height: 40px;
   border-radius: 10px;
-  font-size: 1.3rem;
+  font-size: 1rem;
 }
 
 .entry-button-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 30px;
+  gap: 1rem;
+  width: 100%;
 }
 
 .entry-button-container > button {
-  padding: 20px;
-  font-size: 1.3rem;
+  padding: 0.8rem 1.2rem;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
   border-radius: 10px;
   border: none;
-
   cursor: pointer;
   transition: opacity 0.3s;
 }
@@ -164,13 +168,17 @@ form input {
 }
 
 .rules-dialog {
-  background-color:var(--clr-dark-black);
-  color: white; 
-  border: 3px solid var(--clr-gold); 
+  background-color: var(--clr-dark-black);
+  color: white;
+  border: 3px solid var(--clr-gold);
   border-radius: 10px;
-  padding:20px;
+  padding: 1rem;
   box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
   line-height: 1.3;
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
 .rules-dialog::backdrop {
@@ -178,37 +186,53 @@ form input {
 }
 
 .rules-dialog h2 {
-  color:var(--clr-gold); 
+  color: var(--clr-gold);
   text-align: center;
-  margin: 0;
+  margin: 0 0 1rem 0;
+  font-size: clamp(1.5rem, 4vw, 2rem);
 }
 
 .rules-dialog h3 {
-  color: #f0e68c; 
-  margin: 0;
+  color: #f0e68c;
+  margin: 1rem 0 0.5rem 0;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
 }
 
 .rules-dialog p,
 .rules-dialog ul,
 .rules-dialog ol {
-  color: rgba(255, 255, 255, 0.9); 
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
 }
 
-.close-rules-button-container{
+.close-rules-button-container {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 1rem;
 }
 
-.close-rules-button{
-  background-color:var(--clr-gold);
-  color: black; 
-  padding: 10px 20px;
+.close-rules-button {
+  background-color: var(--clr-gold);
+  color: black;
+  padding: 0.8rem 1.2rem;
   border-radius: 5px;
   border: none;
   cursor: pointer;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
 }
 
 .close-rules-button:hover {
-  background-color: #b5942a; 
+  background-color: #b5942a;
+}
+
+@media (max-width: 480px) {
+  .entry-button-container {
+    flex-direction: row;
+    gap: 0.8rem;
+  }
+
+  .entry-button-container > button {
+    width: 40%;
+  }
 }
